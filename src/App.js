@@ -1,23 +1,43 @@
-import logo from './logo.svg';
+
 import './App.css';
 
-function App() {
+import ReusableBanner from './components/ReusableBanner'
+
+
+const bannerCardList = [
+  {
+    id: 1,
+    headerText: 'The Seasons Latest',
+    description: 'Get the seasons all latest designs in a flick of you hand',
+    className: 'card-1',
+  },
+  {
+    id: 2,
+    headerText: 'The Seasons Strated',
+    description: 'Get the seasons all latest designs in a flick of you hand',
+    className: 'card-2',
+  },
+  {
+    id: 3,
+    headerText: 'The Seasons Over',
+    description: 'Get the seasons all latest designs in a flick of you hand',
+    className: 'card-3',
+  },
+
+]
+
+
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="cards-bg-con">
+      <ul>{ bannerCardList.map(eachObj => (
+        <ReusableBanner sourceItem={ eachObj } key={ eachObj.id } />
+      )) }
+
+      </ul>
+
+
     </div>
   );
 }
